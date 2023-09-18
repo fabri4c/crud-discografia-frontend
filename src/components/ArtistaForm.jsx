@@ -22,10 +22,12 @@ const ArtistaForm = ({ modoEditar, artistaInicial }) => {
 
   const handleGuardar = () => {
     const artista = {
+      artistaId: modoEditar ? artistaInicial.artistaId : undefined,
       nombre,
       fechaNacimiento: new Date(fechaNacimiento).toISOString(),
       nacionalidad
     };
+
     const url = modoEditar
       ? `http://localhost:8001/api/artista/editar`
       : `http://localhost:8001/api/artista/guardar`;
